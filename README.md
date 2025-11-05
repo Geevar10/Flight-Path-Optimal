@@ -1,9 +1,13 @@
-# ✈️ Flight Path Optimization using Machine Learning
+# ✈️ Flight Path Optimization using Machine Learning Final 
 
 ## 📖 Overview
 Flight path optimization is essential for reducing fuel consumption, travel time, and operational costs. Traditional approaches rely on fixed routes and static weather forecasts, which often lead to inefficiencies.  
 
 This project applies **clustering techniques** on historical flight and weather data, and then matches real-time weather conditions to the nearest cluster. The system selects the **optimal flight path** with the least travel time, ensuring better efficiency, lower emissions, and enhanced safety.
+
+This is my College Mini Project and is done by:
+Geevar P Kocheril,JR Gopika,GauthamKrishna Benoy,Ephraim Abraham
+Link of original repo:https://github.com/Gopika011/Fligh_Patht_Optimal/blob/main/README.md
 
 ---
 
