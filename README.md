@@ -8,7 +8,7 @@ This project applies **clustering techniques** on historical flight and weather 
 This is my College Mini Project and is done by:
 Geevar P Kocheril,JR Gopika,GauthamKrishna Benoy,Ephraim Abraham
 
-Link of original repo:https://github.com/Gopika011/Fligh_Patht_Optimal/blob/main/README.md
+Link of original repo: https://github.com/Gopika011/Fligh_Patht_Optimal
 
 ---
 
