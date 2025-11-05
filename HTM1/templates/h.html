@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.130/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.130/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="flight-search-container">
+            <div class="logo">
+                <img src="{{url_for('static', filename='icon.png')}}" alt="App Logo">
+                R-LIGHT
+            </div>
+            <h2>FIND FLIGHT ROUTE</h2>
+            
+            <div class="flight-section">
+                <span class="label">FROM</span>
+                <span class="label selected-airport" id="selected-from-airport">KOCHI (COK)</span>
+                <div class="airport-selector">
+                    <select id="from">
+                        <option value="COK" selected> KOCHI (COK)</option>
+                        <!-- <option value="DEL">DELHI (DEL)</option> -->
+                    </select>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            <div class="flight-section" id="to-container">
+                <span class="label">TO</span>
+                <span class="label selected-airport" id="selected-to-airport">DELHI  (DEL)</span>
+                <div class="airport-selector">
+                    <select id="to">
+                        <option value="DEL" selected>DELHI  (DEL)</option>
+                        <!-- <option value="COK">KOCHI   (COK)</option> -->
+                    </select>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            
+            <div class="flight-section">
+                <span class="label">START DATE</span>
+                <div class="current-value" id="current-start-date"></div>
+                <div class="start-date-selector">
+                    <input type="date" id="start-date" min="2024-12-01" max="2025-02-28">
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+
+            <div class="flight-section">
+                <span class="label">END DATE</span>
+                <div class="current-value" id="current-end-date"></div>
+                <div class="end-date-selector">
+                    <input id="end-date" placeholder="Select end date">
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            
+            <!-- <div class="flight-section" style="visibility: hidden;">
+                <span class="label">DEPARTURE TIME</span>
+                <div class="current-value" id="current-time"></div>
+                <div class="time-selector">
+                    <input type="time" id="time">
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div> -->
+            <div class="flight-section">
+                <span class="label">FLIGHT NUMBER</span>
+                <span class="label selected-airport" id="selected-flight-number">AI2886</span>
+                <div class="flight-number-selector">
+                    <select id="flight-number-select">
+                        <option value="AI2886" selected>AI2886(nov,dec)</option>
+                        <option value="AI504">AI504(feb)</option>
+                    </select>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            
+            <button class="search-flight" id="search-button" onclick="searchPath()">Search Flight</button>
+        </div>
+        <div id="cesiumContainer" class="maps"></div>
+
+ </div>
+        
+        <div id="loading-state">
+            <div id="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
